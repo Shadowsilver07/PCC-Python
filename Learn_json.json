@@ -1,0 +1,99 @@
+// JSON (Javascript Object Notation)
+// API = Application Programming Interface
+// YAML = Yet Another Mark Language
+// Send/Transmitting of data of web application from server to a client
+
+// JSON is a lightweight data-interchange format. It is easy for humans to read and write.
+// It is easy for machines to parse and generate.
+// JSON is a text format that is completely language independent but uses conventions that are familiar to programmers of
+// the C-family of languages, including C, C++, C#, Java, JavaScript, Perl,
+// Python, and many others. These properties make JSON an ideal data-interchange language.
+// JSON is built on two structures:
+// A collection of name/value pairs. In various languages, this is realized as an object, record
+// hash, dictionary, structured data, keyed list, or associative array.
+// An ordered list of values. In most languages, this is realized as an array, vector,
+// list, or sequence.
+// JSON Syntax
+// JSON syntax is derived from JavaScript object notation syntax:
+// Data is in name/value pairs.
+// Data is separated by commas.
+// Curly braces hold objects.
+// Square brackets hold arrays.
+// JSON Example
+// A name and value can be stored as a key/value pair:
+// "name": "John"
+// A JSON object is a collection of name/value pairs:
+// { "name":"John", "age":30, "city":"New York" }
+// A JSON array is an ordered list of values:
+// [ "apple", "banana", "cherry" ]
+// JSON Object
+// A JSON object is an unordered set of name/value pairs. Each name/value pair maps to a
+// key/value pair, and an object is a collection of key/value pairs. A JSON object is
+// surrounded by curly braces {}.
+// JSON Array
+// A JSON array is an ordered collection of values. In various languages, it is realized as an
+// array, vector, list, or sequence. A JSON array is surrounded by square brackets [].
+
+
+// JSON (Javascript Object Notation)
+ - based in Javascript syntax
+ - the standard base format to represent the structure of data. 
+ - human and machine readable - only machine can read
+ - independent from other programming languages
+ - common in API 
+ - Open file format
+ - used in transmitting a data in a web application - from server to client
+// API
+ - exchange data between application and devices
+
+Python Dictionary
+{"Devops": ["AWS", "Jenkins", "Python", "Ansible"], "Development": ["Jave", "NodeJS", ".net"], "ansible_facts": {"Python": "user/bin/python"}}
+
+JSON
+{
+    "Devops":
+    [
+        "AWS", 
+        "Jenkins", 
+        "Python", 
+        "Ansible"
+    ],
+    "Development":
+    [
+        "Jave",
+        "NodeJS",
+        ".net"
+    ],
+    "ansibele_facts":
+    {
+        "python": "/usr/bin/python"
+    }
+}
+
+
+
+// YAML = Yet Another Mark Language
+ - JSON supports data value 
+ - JSON and API are both key value pairs
+ - also key value pair
+ - JSON supports data object as values - - while YAML supports datatype and that is being used the natural language to support the developers
+ - much simplier compared to the 2
+
+// YAML Format
+
+DevOps:
+ - AWS 
+ - Jenkins
+ - Python
+ - Ansible
+
+ansible_facts: 
+    python: /usr/bin/python
+
+
+// Exercises
+my_dict = {"name": "Alice", "age": 30, "hobbies": ["reading", "hiking", "coding"], "education": {"high_school": "Central High", "college": "State University", "degree": "Computer Science"}, "work_experience": [{"company": "Tech Solutions", "position": "Software Engineer", "years": 3}, {"company": "Web Innovators", "position": "Senior Developer", "years": 2}], "skills": {"programming_languages": ["Python", "Java", "C++"], "tools": ["Git", "Docker", "Jenkins"]}, "address": {"street": "123 Main St", "city": "Metropolis", "state": "NY", "zip_code": 12345}}
+
+//  My Solution
+
+

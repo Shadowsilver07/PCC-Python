@@ -1,0 +1,41 @@
+- coding,
+my_dict = 
+name: 
+age: 30,
+hobbies:
+- reading
+- hiking
+education:
+- high_school: Central High, 
+- college: State University, 
+degree: Computer Science
+work_experience: 
+company: Tech Solutions, 
+position: Software Engineer,
+years: 
+3,
+company:
+- Web Innovators
+position:
+- Senior Developer
+years: 
+- 2,
+skills:
+programming_languages:
+- Python, 
+- Java,
+- C++,
+- tools:
+- Git,
+- Alice,
+- Docker,
+- Jenkins,
+address:
+street:
+- 123 Main St,
+city:
+- Metropolis,
+state:
+- NY,
+zip_code:
+- 12345,
