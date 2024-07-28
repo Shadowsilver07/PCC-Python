@@ -5,32 +5,27 @@ all:
   hosts:
     web01:
       ansible_host: 172.31.34.39
-      ansible_user: ec2-user
-      ansible_ssh_private_key_file: client-key.pem
     web02:
       ansible_host: 172.31.45.236
-      ansible_user: ec2-user
-      ansible_ssh_private_key_file: client-key.pem
     db01:
       ansible_host: 172.31.45.36
-      ansible_user: ec2-user
-      ansible_ssh_private_key_file: client-key.pem
 # Groupings
-# Comments run - ansible webservers -m ping -i inventory      
+# Comments run - ansible webservers -m ping -i inventory
   children:
     webservers:
       hosts:
         web01:
         web02:
-# Comments run - ansible dbserver -m ping -i inventory                
+# Comments run - ansible dbserver -m ping -i inventory
     dbservers:
       hosts:
         db01:
-# Comments run - ansible dc_oregon -m ping -i inventory        
+# Comments run - ansible dc_oregon -m ping -i inventory
     dc_oregon:
       children:
         webservers:
         dbservers:
-
-
-
+# Removed ansible_user and ansible_user_private_key_file from all and add it to 'vars'
+      vars:
+        ansible_user: ec2-user
+        ansible_user_private_key_file: client-key.pem
