@@ -1,2 +1,54 @@
 VSVode Main Tips and Tricks
 https://code.visualstudio.com/docs/getstarted/tips-and-tricks#_editing-hacks
+
+
+
+    [root@localhost emartapp]# docker compose up -d
+    [+] Building 33.8s (12/20)                                                                                                                        docker:default
+     => [webapi internal] load build definition from Dockerfile                                                                                                 0.0s
+     => => transferring dockerfile: 443B                                                                                                                        0.0s
+     => WARN: StageNameCasing: Stage name 'BUILD_IMAGE' should be lowercase (line 1)                                                                            0.0s
+     => [api internal] load build definition from Dockerfile                                                                                                    0.0s
+     => => transferring dockerfile: 368B                                                                                                                        0.0s
+     => [webapi internal] load metadata for docker.io/library/openjdk:8                                                                                         2.3s
+     => [api internal] load metadata for docker.io/library/node:14                                                                                              2.3s
+     => [api internal] load .dockerignore                                                                                                                       0.0s
+     => => transferring context: 2B                                                                                                                             0.0s
+     => [webapi internal] load .dockerignore                                                                                                                    0.0s
+     => => transferring context: 2B                                                                                                                             0.0s
+     => [api internal] load build context                                                                                                                       0.1s
+     => => transferring context: 2.85kB                                                                                                                         0.0s
+     => CANCELED [api nodeapi-build 1/4] FROM docker.io/library/node:14@sha256:a158d3b9b4e3fa813fa6c8c590b8f0a860e015ad4e59bbce5744d2f6fd8461aa                31.5s
+     => => resolve docker.io/library/node:14@sha256:a158d3b9b4e3fa813fa6c8c590b8f0a860e015ad4e59bbce5744d2f6fd8461aa                                            0.0s
+     => => sha256:b253aeafeaa7e0671bb60008df01de101a38a045ff7bc656e3b0fbfc7c05cca5 7.86MB / 7.86MB                                                             10.8s
+     => => sha256:3d2201bd995cccf12851a50820de03d34a17011dcbb9ac9fdf3a50c952cbb131 10.00MB / 10.00MB                                                           14.1s
+     => => sha256:a158d3b9b4e3fa813fa6c8c590b8f0a860e015ad4e59bbce5744d2f6fd8461aa 776B / 776B                                                                  0.0s
+     => => sha256:2cafa3fbb0b6529ee4726b4f599ec27ee557ea3dea7019182323b3779959927f 2.21kB / 2.21kB                                                              0.0s
+     => => sha256:2ff1d7c41c74a25258bfa6f0b8adb0a727f84518f55f65ca845ebc747976c408 37.75MB / 50.45MB                                                           31.5s
+     => => sha256:1d12470fa662a2a5cb50378dcdc8ea228c1735747db410bbefb8e2d9144b5452 7.51kB / 7.51kB                                                              0.0s
+     => => sha256:1de76e268b103d05fa8960e0f77951ff54b912b63429c34f5d6adfd09f5f9ee2 9.44MB / 51.88MB                                                            31.5s
+     => => sha256:d9a8df5894511ce28a05e2925a75e8a4acbd0634c39ad734fdfba8e23d1b1569 12.58MB / 191.85MB                                                          31.5s
+     => [webapi internal] load build context                                                                                                                    0.0s
+     => => transferring context: 8.57kB                                                                                                                         0.0s
+     => [webapi build_image 1/5] FROM docker.io/library/openjdk:8@sha256:86e863cc57215cfb181bd319736d0baf625fe8f150577f9eb58bd937f5452cb8                       0.0s
+     => CACHED [webapi build_image 2/5] WORKDIR /usr/src/app/                                                                                                   0.0s
+     => ERROR [webapi build_image 3/5] RUN apt update && apt install maven -y                                                                                  31.4s
+    ------
+     > [webapi build_image 3/5] RUN apt update && apt install maven -y:
+    0.167
+    0.167 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+    0.167
+    0.306 Get:1 http://deb.debian.org/debian bullseye InRelease [116 kB]
+    0.578 Get:2 http://deb.debian.org/debian-security bullseye-security InRelease [48.4 kB]
+    0.603 Get:3 http://deb.debian.org/debian bullseye-updates InRelease [44.1 kB]
+    0.695 Get:4 http://deb.debian.org/debian bullseye/main amd64 Packages [8067 kB]
+    30.68 Reading package lists...
+    31.22 E: Release file for http://deb.debian.org/debian-security/dists/bullseye-security/InRelease is not valid yet (invalid for another 3d 7h 35min 28s). Updates for this repository will not be applied.
+    31.22 E: Release file for http://deb.debian.org/debian/dists/bullseye-updates/InRelease is not valid yet (invalid for another 3d 2h 53min 33s). Updates for this repository will not be applied.
+    ------
+    failed to solve: process "/bin/sh -c apt update && apt install maven -y" did not complete successfully: exit code: 100
+    [root@localhost emartapp]#
+    1
+
+    
+
