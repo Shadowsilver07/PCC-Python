@@ -19,3 +19,9 @@
       ansible.builtin.yum:
         name: mariadb-server
         state: present
+    - name: Start maria service
+      ansible.builtin.service:
+        name: mariadb
+        state: started
+        enabled: yes
+
