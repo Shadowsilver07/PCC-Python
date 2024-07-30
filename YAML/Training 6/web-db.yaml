@@ -3,14 +3,14 @@
   become: yes
   tasks:
     - name: Install httpd
-      ansible.builtin.yum # this is from Adhoc
+      ansible.builtin.yum: # this is from ad hoc
         name: httpd
         state: present
     - name: Start service
-      ansible.builtin.service
+      ansible.builtin.service:
         name: httpd
         state: started
-        enable: yes
+        enabled: yes
 - name: DBServer setup
   hosts: dbservers
   become: yes
