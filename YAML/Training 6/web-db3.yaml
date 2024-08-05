@@ -1,0 +1,44 @@
+ubuntu@ip-172-31-43-201:~/vprofile/exercise6$ cat web-db3.yaml
+- name: webserver setup
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Install httpd
+      ansible.builtin.yum:
+        name: httpd
+        state: present
+    - name: Start service
+      ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: yes
+# Adding copy files to remote location Module
+    - name: Copy index file
+      copy:
+        src: files/index.html
+        dest: /var/www/html/index.html
+        mode: '0744'
+
+# Adding copy files to remote location Module - copy from control files2/teachmax-main/* - this will only copy files inside techmax-main
+    - name: Copy techmax-main files
+      copy:
+        src: '{{ item }}'
+        dest: /var/www/html/
+        mode: '0744'
+      with_fileglob:
+        - files2/techmax-main/*
+      when: inventory_hostname == 'web02'
+
+- name: DBServer setup
+  hosts: dbservers
+  become: yes
+  tasks:
+    - name: Install mariadb-server
+      ansible.builtin.yum:
+        name: mariadb-server
+        state: present
+    - name: Start maria service
+      ansible.builtin.service:
+        name: mariadb
+        state: started
+        enabled: yes
