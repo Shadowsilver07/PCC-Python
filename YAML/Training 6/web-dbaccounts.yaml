@@ -1,4 +1,5 @@
-# ubuntu@ip-172-31-43-201:~/vprofile/exercise6$ cat web-db3.yaml
+# Create a database with the name 'accounts'
+# ubuntu@ip-172-31-43-201:~/vprofile/exercise6$ cat web-db.yaml
 - name: webserver setup
   hosts: webservers
   become: yes
@@ -17,17 +18,7 @@
       copy:
         src: files/index.html
         dest: /var/www/html/index.html
-        mode: '0744'
 
-# Adding copy files to remote location Module - copy from control files2/teachmax-main/* - this will only copy files inside techmax-main
-    - name: Copy techmax-main files
-      copy:
-        src: '{{ item }}'
-        dest: /var/www/html/
-        mode: '0744'
-      with_fileglob:
-        - files2/techmax-main/*
-      when: inventory_hostname == 'web02'
 
 - name: DBServer setup
   hosts: dbservers
@@ -37,8 +28,18 @@
       ansible.builtin.yum:
         name: mariadb-server
         state: present
+# This install PyMySQL and resolves the error
+    - name: Install pymysql
+      ansible.builtin.yum:
+        name: python3-PyMySQL
+        state: present
     - name: Start maria service
       ansible.builtin.service:
         name: mariadb
         state: started
         enabled: yes
+# This creates a database with name accounts
+    - name: Create a new database with name 'accounts'
+      mysql_db:
+        name: accounts
+        state: present
