@@ -43,3 +43,6 @@
       mysql_db:
         name: accounts
         state: present
+# This added  the sock path
+        login_unix_socket: /var/lib/mysql/mysql.sock
+
